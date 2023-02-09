@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" th:fragment="categoryTable">
+
+<body>
+<table class="table table-striped">
+  <thead class="thead-dark">
+  <tr>
+    <th>ID</th>
+    <th>Category Name</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr th:each="cat: ${categories}">
+    <td th:text="${cat.id}"></td>
+    <td th:text="${cat.categoryName}"></td>
+  </tr>
+  </tbody>
+</table>
+</body>
+</html>

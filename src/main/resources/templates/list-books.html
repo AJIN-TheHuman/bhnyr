@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" th:replace="~{layout/shopViewLayout.html::layout(~{::main})}">
+
+<body>
+<main role="main">
+  <div class="container mt-4 p-5">
+    <h1 class="text-center pb-3">All Book</h1>
+    <div th:replace="~{fragments/allBooksCard.html::bookCard}"></div>
+  </div>
+</main>
+
+</body>
+</html>

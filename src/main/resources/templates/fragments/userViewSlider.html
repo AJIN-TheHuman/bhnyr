@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<body>
+<div th:fragment="slider">
+    <div id="overlay">
+        <section id="showcase">
+            <!-- Carousel Slider-->
+
+            <div id="myCarousel" class="carousel slide" data-ride="carousel">
+                <ol class="carousel-indicators">
+                    <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+                    <li data-target="#myCarousel" data-slide-to="1"></li>
+                    <li data-target="#myCarousel" data-slide-to="2"></li>
+                </ol>
+                <div class="carousel-inner">
+                    <div class="carousel-item active carousel-image-1">
+                        <div class="container">
+                            <div class="carousel-caption d-none d-md-block mb-3 text-center">
+                                <h1 class="display-1">Chase your dream</h1>
+                                <p class="lead">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquam,
+                                    optio?</p>
+                                <button class="btn btn-info btn-lg">Learn More</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="carousel-item carousel-image-2">
+                        <div class="container">
+                            <div class="carousel-caption d-none d-md-block text-center mb-3">
+                                <h1 class="display-1">Do What you want</h1>
+                                <p class="lead">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquam,
+                                    optio?</p>
+                                <button class="btn btn-info btn-lg">Learn More</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="carousel-item carousel-image-3">
+                        <div class="container">
+                            <div class="carousel-caption d-none d-md-block text-center mb-3">
+                                <h1 class="display-1 text-center">Be Smart</h1>
+                                <p class="lead">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquam,
+                                    optio?</p>
+                                <button class="btn btn-info btn-lg">Learn More</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <button class="carousel-control-prev" type="button" data-target="#myCarousel" data-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="sr-only">Previous</span>
+                </button>
+                <button class="carousel-control-next" type="button" data-target="#myCarousel" data-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="sr-only">Next</span>
+                </button>
+            </div>
+        </section>
+
+        <!-- Home Icon -->
+        <section class="py-5 homeIcon">
+            <div class="container">
+                <div class="row">
+
+                    <div class="col-md-4 mb-3 text-center">
+                        <i class="fas fa-book"></i>
+                        <h3>Explore</h3>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. At, facilis?</p>
+                    </div>
+
+                    <div class="col-md-4 mb-3 text-center">
+                        <i class="fas fa-cloud"></i>
+                        <h3>Find</h3>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. At, facilis?</p>
+                    </div>
+
+                    <div class="col-md-4 mb-3 text-center">
+                        <i class="fas fa-store"></i>
+                        <h3>Buy</h3>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. At, facilis?</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Book List -->
+        <section>
+            <div class="container-fluid bg-light py-5">
+                <div class="container">
+                    <h3 class="text-center">Best Sellers</h3>
+                    <div class="row">
+                        <div class="col-md-4" th:each="book : ${allbooks}">
+                            <div class="card my-2">
+                                <img th:src="${book.imgUrl}" class="card-img-top" alt="" style="height: 18rem">
+                                <div class="card-body">
+                                    <h5 class="card-title" th:text="${book.title}"></h5>
+                                    <p class="card-text" th:text="${book.description}"></p>
+                                    <div class="d-flex justify-content-between">
+                                        <a href="#" class="btn btn-outline-primary">Buy</a>
+                                        <a href="#" class="card-text mt-2" th:text="${book.price + ' $'}"></a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Home Heading-->
+        <section class="py-5" id="homeHeading">
+            <div class="dark-overlay">
+                <div class="container text-center">
+                    <h3>Are You Ready to Get Started</h3>
+                    <p class="lead">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eaque,
+                        facilis?</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Benefit of Reading -->
+        <section>
+            <div class="container mt-3">
+                <div class="row">
+                    <div class="col">
+                        <h1 class="mt-3">BENEFIT OF READING</h1>
+                        <p class="lead"><span>Alias aperiam at dignissimos dolore eius exercitationem, hic, iure libero minus modi, neque perferendis quaerat quibusdam reprehenderit sequi. Animi consequatur id in incidunt ipsa mollitia obcaecati rem saepe soluta voluptas.</span>
+                        </p>
+                        <a href="#" th:href="@{/shop/show-all-books}" class="btn btn-outline-info">Learn More About Book</a>
+                    </div>
+                    <div class="col">
+                        <img th:src="@{/img/laptop.png}" class="img-fluid" alt="">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Book Shelf-->
+        <section class="bg-light">
+            <div class="container py-4 text-center">
+                <h1>What other are saying?</h1>
+                <h3>#BOOKSHELF</h3>
+                <div class="row">
+                    <div class="col-md-3 my-2" th:each="book:${allbooks}">
+                        <div th:if="book.imgUrl!=null">
+                            <img th:src="${book.imgUrl}" class="img-thumbnail" alt="">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- BlockQuote -->
+        <section>
+            <div class="container py-5">
+                <blockquote id="quote" class="blockquote text-center">
+                    <h3><i class="fas fa-quote-left"></i></h3>
+                    <p><span>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Facere numquam qui quia quo reprehenderit sit voluptatem! A accusamus aperiam assumenda aut, illo labore quisquam repellendus sequi vero! At, earum, tempore.</span><span>Asperiores dignissimos inventore magni minus nobis numquam odit officia praesentium quos voluptates! Accusantium adipisci assumenda commodi cum cupiditate, distinctio eligendi excepturi fuga harum id inventore nam, nesciunt perspiciatis quo, velit?</span>
+                    </p>
+                    <footer class="blockquote-footer">Thomas Hardy</footer>
+                </blockquote>
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <section id="newsLetter" class="bg-dark">
+            <div class="container text-white text-center py-5">
+                <p class="lead">EXPLORE AND ENJOY OUR BOOKSHELF AND MAKE HAPPY</p>
+                <div class="row">
+                    <div class="col">
+                        <form action="#" class="form-inline justify-content-center">
+                            <div class="input-group">
+                                <input type="text" placeholder="Enter Email" class="form-control">
+                                <div class="input-group-append">
+                                    <button class="btn btn-success">JOIN NOW</button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="footer" class="p-3 bg-secondary">
+            <ul class="nav justify-content-center flex-column flex-sm-row">
+                <li class="nav-item"><a href="" class="nav-link text-white">FAQ</a></li>
+                <li class="nav-item"><a href="" class="nav-link text-white">SEARCH</a></li>
+                <li class="nav-item"><a href="" class="nav-link text-white">ABOUT</a></li>
+                <li class="nav-item"><a href="" class="nav-link text-white">CONTACT US</a></li>
+            </ul>
+        </section>
+    </div>
+</div>
+
+</body>
+</html>

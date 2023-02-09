@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" th:replace="~{layout/adminLayout::layout(~{::main})}">
+<body>
+<main role="main">
+<div class="bg-success text-white py-2">
+  <div class="container">
+    <div class="row">
+      <div class="col">
+        <h1>
+          <i class="fas fa-user-tie mr-2"></i> Author
+        </h1>
+      </div>
+    </div>
+  </div>
+</div>
+  <section>
+    <div class="bg-light py-5 mb-3">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-6 offset-md-6">
+            <div class="input-group">
+              <input type="text" class="form-control">
+              <div class="input-group-append">
+                <button class="btn btn-success">Search</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="container">
+      <div class="card shadow">
+        <div class="card-header" >
+          <h4>Author</h4>
+        </div>
+        <div class="card-body">
+          <div th:replace="~{fragments/authorTable.html::authorTable}"></div>
+        </div>
+      </div>
+    </div>
+
+  </section>
+</main>
+</body>
+</html>
